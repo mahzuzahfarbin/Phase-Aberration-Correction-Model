@@ -16,3 +16,7 @@ One of the main sources of image degradation in ultrasound imaging is the phase 
 *Background*: For treating spinal cord disorders, aberration refers to the changes that occur to the ultrasound beam as it passes through the vertebral bone. This is because vertebral bone has a different acoustic impedence compared to surrounding tissue, which causes the ultrasound beam to scatter as it passes through the bone. This scattering and reflection causes the ultrasound beam to distort, resulting in a non-unform distribution of energy within the focal region. 
 
 In order to overcome aberration, correction algorithms are applied to the transducer array to modify the phase and amplitude of the ultrasound waves, so that they can converge at the desired location and intensity within the spinal cord. These algorithms use computational models that take into account the acoustic properties of the vertebral bone and geometry of the transducer array to calculate the necessary corrections.
+
+![github-small](https://user-images.githubusercontent.com/117220797/235369264-52d2c0d0-a6f4-437c-b176-8ed7d9a7db51.png)
+
+*An image of the phase aberration correction required in ultrasound images (numerical example)*
