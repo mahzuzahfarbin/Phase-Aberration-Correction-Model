@@ -32,4 +32,5 @@ In focused ultrasound, FFT is used to analyze the waveform of the ultrasound bea
 
 *Note: There are other computational models, but they tend to have a worst time complexity in comparison to K-Space.*
 
-# K-Wave - MATLAB Toolbox
+# K-Wave
+K-Wave is a MATLAB toolbox that is designed for the simulation of acoustic wave properties (e.g., reflection, refraction, absorption, and effects of bone on ultrasound waves) and scattering in heterogeneous media, including soft tissue and bone. This toolbox is based on the K-Space pseudospectral method described in the previous section.
