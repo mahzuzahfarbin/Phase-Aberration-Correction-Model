@@ -37,3 +37,23 @@ K-Wave is a MATLAB toolbox that is designed for the simulation of acoustic wave 
 
 # Ray Acoustics
 Ray acoustics is a modelling approach that is used to simulate the propagation of acoustic waves in complex media. In the context of focused ultrasound-mediated opening of the BSCB, ray acoustics is used to simulate the propagation of the ultrasound waves through the tissue, taking into account the effects of refraction, reflection, and absorptions, and the effects of the vertebral bone on the ultrasound wavefront. The simulations can be used to optimize the design of the transducer array and the treatment parameters.
+
+# Deep Learning Approaches
+1.1. Machine Learning
+Machine learning is a type of artificial intelligence that involves training an algorithm to make predictions or decisions based on input data. In machine learning, the implemented algorithm is dynamically programmed such that it is able to learn patterns on input data sets and subsequently apply such predictive and decision-making techniques on new, unseen data. 
+
+1.2. Neural Networks
+Neural networks are a type of machine learning algorithm that are modeled after the structure and function of the human brain. They are composed of layers of interconnected neurons that process and transform input data to produce output. The neurons in each layer receive inputs from the previous layer, process them using a set of weights and biases, and then output their activation to the next layer. The output of the final layer is the network’s prediction or classification of the input data. One significant importance of neural networks is their effectiveness as image recognition; in particular, they are able to learn complex patterns and relationships in imaging data and make accurate classifications necessary from these datasets, even if these inputs contain noise or are incomplete.
+
+1.3. Generative Adversarial Networks (GANs)
+Generative Adversarial Networks (GANs) are a type of neural network that are used for generating new, synthetic data samples that are similar to data from a given dataset. GANs are composed of two neural networks: a generator and a discriminator. The generator network takes in random noise as input and generates new data samples (e.g., images, sounds, or text). The discriminator network takes in both the generated data and real data from a dataset, and classifies which samples are real and which are not. As the two networks are trained together, the generator learns to produce more realistic data, while the discriminator learns to better distinguish between real and fake data.
+
+1.4. U-Net GANs 
+U-Net GANs are a type of Generative Adversarial Network that uses a U-Net architecture as the generator network. U-Net is a fairly popular neural network architecture for image segmentation tasks, and has been adapted for use in GANs to generate synthetic images. 
+
+In a U-Net GAN, the generator network takes in a random noise vector as input and generates a synthetic image as output. This architecture consists of an encoder and decoder, which are connected by a bottleneck layer. The encoder down-samples the input image, while the decoder up-samples the output image, with the bottleneck layer in between to capture the most important features of the image. 
+
+In a U-Net GAN, the discriminator network is a convolutional neural network (CNN) that is trained to distinguish between real and synthetic images. The discriminator is designed to be more complex than the generator, and is trained to identify the subtle differences between real and synthetic images. 
+
+# Project Outline
+Treatment planning using computational models and patient-derived geometry and bone density can calculate the necessary corrections to be applied to the transducer array. Unfortunately the registration and simulation pipeline can take several minutes, or longer for more accurate models, to perform these calculations, which is cumbersome in the treatment setting. In the present project we will investigate the use of machine learning methods to accelerate both the registration and aberration calculation steps, leveraging a large spine CT dataset containing images from over 100 patients. The ultimate impact of this work will be the development of practical tools that will streamline the workflow of large animal preclinical safety studies and ultimately of the clinical studies.
