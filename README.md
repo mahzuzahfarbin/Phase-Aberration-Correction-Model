@@ -34,3 +34,6 @@ In focused ultrasound, FFT is used to analyze the waveform of the ultrasound bea
 
 # K-Wave
 K-Wave is a MATLAB toolbox that is designed for the simulation of acoustic wave properties (e.g., reflection, refraction, absorption, and effects of bone on ultrasound waves) and scattering in heterogeneous media, including soft tissue and bone. This toolbox is based on the K-Space pseudospectral method described in the previous section.
+
+# Ray Acoustics
+Ray acoustics is a modelling approach that is used to simulate the propagation of acoustic waves in complex media. In the context of focused ultrasound-mediated opening of the BSCB, ray acoustics is used to simulate the propagation of the ultrasound waves through the tissue, taking into account the effects of refraction, reflection, and absorptions, and the effects of the vertebral bone on the ultrasound wavefront. The simulations can be used to optimize the design of the transducer array and the treatment parameters.
