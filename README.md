@@ -8,7 +8,7 @@ The blood spinal cord barrier (BSCB) is a physical barrier between the blood and
 
 *An image of the biological geometry of the Blood Spinal Cord Barrier (BSCB).*
 
-# Phase Aberration Correction - Background
+# Phase Aberration Correction
 **Aberation deals with the distortion or deviation of a wavefront from its ideal shape as it propagates through a medium.**
 
 One of the main sources of image degradation in ultrasound imaging is the phase aberration effect, which imposes limitations to both data acquisition and reconstruction. 
@@ -26,8 +26,10 @@ The most common computational model for phase correction is based on the K-Space
 
 ***Fourier Transform***
 
-Fourier transform is a mathematical operation that decomposes a function or signal into its constituent frequencies. Any complex waveform can be expressed as a sum of simple sin(x) waveforms of different frequencies, amplitudes, and phases. We can then analyze its spectral content and identify important features such as peaks, harmonics, or noise. This is done via an algorithm called the Fast Fourier Transform (FFT) 
+Fourier transform is a mathematical operation that decomposes a function or signal into its constituent frequencies. Any complex waveform can be expressed as a sum of simple sin(x) waveforms of different frequencies, amplitudes, and phases. We can then analyze its spectral content and identify important features such as peaks, harmonics, or noise. This is done via an algorithm called the Fast Fourier Transform (FFT). 
 
 In focused ultrasound, FFT is used to analyze the waveform of the ultrasound beam and calculate the optimal phase and aplitude corrections needed to correct for aberration caused by the vertebral bone. FFT decomposes wavefront into its frequency components and then adjusts the phase and amplitude of each component for the desired focal point.
 
-*Note: There are other computational models, but they tend to have a worst time complexity in comparison to K-Space*
+*Note: There are other computational models, but they tend to have a worst time complexity in comparison to K-Space.*
+
+# K-Wave - MATLAB Toolbox
