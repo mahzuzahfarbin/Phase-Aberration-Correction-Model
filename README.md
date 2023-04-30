@@ -25,6 +25,7 @@ In order to overcome aberration, correction algorithms are applied to the transd
 The most common computational model for phase correction is based on the K-Space method. This method uses the Fourier transform of the ultrasound pressure wavefront. It allows for the simulation of the propagation of ultrasound waves through complex media, such as the bertebral bone, and the calculation of the wavefront distortions caused by the bone. The K-Space method can be combined with optimization algorithms to determine the optimal corrections for aberration.
 
 ***Fourier Transform***
+
 Fourier transform is a mathematical operation that decomposes a function or signal into its constituent frequencies. Any complex waveform can be expressed as a sum of simple sin(x) waveforms of different frequencies, amplitudes, and phases. We can then analyze its spectral content and identify important features such as peaks, harmonics, or noise. This is done via an algorithm called the Fast Fourier Transform (FFT) 
 
 In focused ultrasound, FFT is used to analyze the waveform of the ultrasound beam and calculate the optimal phase and aplitude corrections needed to correct for aberration caused by the vertebral bone. FFT decomposes wavefront into its frequency components and then adjusts the phase and amplitude of each component for the desired focal point.
