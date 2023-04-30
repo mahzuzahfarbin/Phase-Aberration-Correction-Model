@@ -8,7 +8,7 @@ The blood spinal cord barrier (BSCB) is a physical barrier between the blood and
 
 *An image of the biological geometry of the Blood Spinal Cord Barrier (BSCB).*
 
-# Phase Aberration Correction
+# Phase Aberration Correction - Background
 **Aberation deals with the distortion or deviation of a wavefront from its ideal shape as it propagates through a medium.**
 
 One of the main sources of image degradation in ultrasound imaging is the phase aberration effect, which imposes limitations to both data acquisition and reconstruction. 
@@ -19,4 +19,6 @@ In order to overcome aberration, correction algorithms are applied to the transd
 
 ![github-small](https://user-images.githubusercontent.com/117220797/235369264-52d2c0d0-a6f4-437c-b176-8ed7d9a7db51.png)
 
-*An image of the phase aberration correction required in ultrasound images (numerical example)*
+*An image of the phase aberration correction required in ultrasound images (numerical example).*
+
+# Correction Algorithms
