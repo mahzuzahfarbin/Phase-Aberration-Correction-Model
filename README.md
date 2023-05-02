@@ -1,6 +1,13 @@
 # AI Registration Pipeline
 This repository will contain PyTorch + TensorFlow files using Python 3.6 to develop an AI registration pipeline for phase aberration correction in CT scans. Furthermore, an in-depth documentation for ML implementations are provided.
 
+# Dependencies
+1. Install miniconda http://conda.pydata.org/miniconda.html
+2. Do ```conda env create```
+3. Enter the env ```source activate generative-models```
+4. Install Tensorflow
+5. Install Pytorch
+
 # Blood Spinal Cord Barrier
 The blood spinal cord barrier (BSCB) is a physical barrier between the blood and spinal cord. The BSCB prevents toxins, blood cells, and pathogens from entering the spinal cord - all while maintaining a tightly controlled chemical balance in the spinal environment. However, through the application of focused ultrasound and its interaction with microbubbles can non-invasively open the BSCB for the therapeutic delivery of drugs.
 
