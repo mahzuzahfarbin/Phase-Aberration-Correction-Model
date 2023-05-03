@@ -1,0 +1,3 @@
+Simulation of ultrasound waves: We will use k-Wave toolbox in MATLAB to simulate the propagation of 
+ultrasound waves through patient-specific spine geometries and bone densities, and use the resulting 
+wavefront aberrations as additional training examples for the machine learning algorithm.
