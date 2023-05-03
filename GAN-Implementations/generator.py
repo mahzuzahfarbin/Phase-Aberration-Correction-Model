@@ -78,7 +78,8 @@ class UNETGenerator(nn.Module):
 
     def forward(self, input_tensor) -> Any:
         """
-        Apply the appropriate skip connections and concatenate the feature maps.
+        Takes an input tensor, <input_tensor>, and applies the appropriate 
+        skip connections and concatenate the feature maps.
         """
         # Contracting Path
         enc_1 = self.relu_1(self.batch_norm_1(self.conv_1(input_tensor)))
