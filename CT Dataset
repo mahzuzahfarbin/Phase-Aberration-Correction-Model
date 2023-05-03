@@ -1,3 +1,3 @@
 # Preprocessing the acquired CT Dataset
 The first step will be to pre-process the CT images to extract the spinal cord region (thoracic) 
-and normalize the images, removing noise and artifacts (e.g., tumors).
+and normalize the images, removing noise and artifacts (e.g., tumors)
