@@ -1,0 +1,5 @@
+Augmenting the dataset: We would use the results of the simulation of ultrasound waves in step 2 (i.e., simulated
+aberration) to generate synthetic data that can be used to augment the training set. This would involve 
+simulating the propagation of ultrasound waves through a range of patient-specific spine geometries and 
+bone densities, and using the resulting wavefront aberrations as additional training examples for the machine 
+learning algorithm.
