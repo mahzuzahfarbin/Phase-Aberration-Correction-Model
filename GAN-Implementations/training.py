@@ -1,4 +1,3 @@
-
 # Define the training model
 class TrainingModel:
 
