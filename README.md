@@ -1,5 +1,5 @@
 # AI Registration Pipeline
-This repository will contain PyTorch + TensorFlow files using Python 3.6 to develop an AI registration pipeline for phase aberration correction in CT scans. Furthermore, an in-depth documentation for ML implementations are provided.
+This repository will contain PyTorch + TensorFlow files using Python 3.10 to develop an AI registration pipeline for phase aberration correction in CT scans. Furthermore, an in-depth documentation for ML implementations are provided.
 
 # Dependencies
 1. Install miniconda http://conda.pydata.org/miniconda.html
