@@ -1,56 +1,39 @@
-class WassersteinDiscriminator(nn.Module):
+class Generator(nn.Module):
+    """The generator network which maintains an encoder-decoder architecture
+    for down-sampling a 3D volume to a lower-dimensional representation.
     """
-    This class serves as the discriminator network in the architecture. The
-    following is an overview of how this Discriminator network will function.
+    def __init__(self, in_channels=1, out_channels=1, num_filters=64):
+        """Initialize the generator"""
+        super(Generator, self).__init__()
+        # Encoder
+        self.conv1 = nn.Conv3d(in_channels, num_filters, kernel_size=4, stride=2, padding=1)
+        self.conv2 = nn.Conv3d(num_filters, num_filters * 2, kernel_size=4, stride=2, padding=1)
+        self.conv3 = nn.Conv3d(num_filters * 4, num_filters * 8, kernel_size=4, stride=2, padding=1)
+        self.conv4 = nn.Conv3d(num_filters * 8, num_filters * 16, kernel_size=4, stride=2, padding=1)
+        # Decoder
+        self.deconv1 = nn.ConvTranspose2d(num_filters * 16, num_filters * 8, kernel_size=4, stride=2, padding=1)
+        self.deconv2 = nn.ConvTranspose2d(num_filters * 8, num_filters * 4, kernel_size=4, stride=2, padding=1)
+        self.deconv3 = nn.ConvTranspose2d(num_filters * 4, num_filters * 2, kernel_size=4, stride=2, padding=1)
+        self.deconv4 = nn.ConvTranspose2d(num_filters * 2, num_filters, kernel_size=4, stride=2, padding=1)
+        self.deconv5 = nn.ConvTranspose2d(num_filters, out_channels, kernel_size=4, stride=1, padding=1)
 
-    Unlike a traditional GAN, we will be setting up a WGAN, whereby a
-    Wasserstein loss is designed in contrast to setting up binary cross-entropy
-    loss. The discriminator is designed to take in a 2D image that is curated
-    by the functioning generator network. The input image is then passed through
-    a series of convolutional layers, with each layer followed by a batch
-    normalization layer and a LeakyReLU activation function.
-    The final layer outputs a single scalar value, representing the
-    possibility that the input image is real
-    """
+        self.relu = nn.ReLU()
+        self.tanh = nn.Tanh()
 
-    def __init__(self, in_channels=1, num_discrim_filters=64) -> None:
-        """
-        Initialize the discriminator network architecture.
-        """
-        super(WassersteinDiscriminator, self).__init__()
+    def forward(self, input_tensor):
+        """Computation graph of the generator network (i.e., how the input tensor
+        flows through the layers in initializer)"""
+        x1 = self.conv1(input_tensor)
+        x2 = self.relu(self.conv2(x1))
+        x3 = self.relu(self.conv3(x2))
+        x4 = self.relu(self.conv4(x3))
+        x5 = self.relu(self.conv5(x4))
 
-        self.conv_1 = nn.Conv2d(in_channels, num_discrim_filters, kernel_size=4, stride=2, padding=1)
-        self.relu_1 = nn.LeakyReLU(0.2, inplace=True)
-        self.conv_2 = nn.Conv2d(num_discrim_filters, num_discrim_filters * 2, kernel_size=4, stride=2, padding=1)
-        self.batch_norm_2 = nn.BatchNorm2d(num_discrim_filters * 2)
-        self.relu_2 = nn.LeakyReLU(0.2, inplace=True)
-        self.conv_3 = nn.Conv2d(num_discrim_filters * 2, num_discrim_filters * 4, kernel_size=4, stride=2, padding=1)
-        self.batch_norm_3 = nn.BatchNorm2d(num_discrim_filters * 4)
-        self.relu_3 = nn.LeakyReLU(0.2, inplace=True)
-        self.conv_4 = nn.Conv2d(num_discrim_filters * 4, num_discrim_filters * 8, kernel_size=4, stride=2, padding=1)
-        self.batch_norm_4 = nn.BatchNorm2d(num_discrim_filters * 8)
-        self.relu_4 = nn.LeakyReLU(0.2, inplace=True)
-        self.conv_5 = nn.Conv2d(num_discrim_filters * 8, out_channels=1, kernel_size=4, stride=1, padding=0)
+        # Decoder
+        y1 = self.relu(self.deconv1(x5))
+        y2 = self.relu(self.deconv2(y1))
+        y3 = self.relu(self.deconv3(y2))
+        y4 = self.relu(self.deconv4(y3))
+        output = self.tanh(self.deconv5(y4))
 
-    def forward(self, input_tensor) -> Any:
-        """
-        Takes an input tensor <input_tensor> and passes it through a series of
-        convolutional layers, batch normalization layers, and leaky ReLU
-        activation functions to learn features from the input image. These
-        features are then flattened and passed through a fully connected layer
-        to obtain a scalar output.
-        """
-        input_tensor = self.conv1(input_tensor)
-        input_tensor = self.relu1(input_tensor)
-        input_tensor = self.conv2(input_tensor)
-        input_tensor = self.bn2(input_tensor)
-        input_tensor = self.relu2(input_tensor)
-        input_tensor = self.conv3(input_tensor)
-        input_tensor = self.bn3(input_tensor)
-        input_tensor = self.relu3(input_tensor)
-        input_tensor = self.conv4(input_tensor)
-        input_tensor = self.bn4(input_tensor)
-        input_tensor = self.relu4(input_tensor)
-        input_tensor = self.conv5(input_tensor)
-
-        return input_tensor.view(-1, 1)
+        return output
