@@ -94,16 +94,15 @@ for epoch in range(num_epochs):
 
     # Save generated samples
             # Print/display curated fake images
-            if epoch % 50 == 0:
-                curated_images = fake_images[:num_samples]
+        fake_images_np = fake_images.detach().cpu().numpy()  # Convert tensor to numpy array
+        fake_images_np = np.transpose(fake_images_np, (0, 2, 3, 1))  # Reshape to match image dimensions
 
-                # Convert tensors to numpy arrays and move to CPU
-                curated_images = curated_images.detach().cpu().numpy()
+# Select a subset of images to visualize
+        selected_images = fake_images_np[:num_samples]
 
-                # Display the curated images
-                for i in range(num_samples):
-                    plt.subplot(1, num_samples, i+1)
-                    plt.imshow(curated_images[i].squeeze(), cmap='gray')
-                    plt.axis('off')
-
-                plt.show()
+# Display the images
+        fig, axes = plt.subplots(1, num_samples, figsize=(10, 10))
+        for i in range(num_samples):
+            axes[i].imshow(selected_images[i], cmap='gray')
+            axes[i].axis('off')
+        plt.show()
