@@ -93,7 +93,17 @@ for epoch in range(num_epochs):
                   f"Generator Loss: {generator_loss.item():.4f}")
 
     # Save generated samples
-    if (epoch + 1) % sample_interval == 0:
-        with torch.no_grad():
-            fake_samples = generator(fixed_noise)
-        save_image(fake_samples, f"generated_samples_epoch_{epoch + 1}.png", normalize=True)
+            # Print/display curated fake images
+            if epoch % 50 == 0:
+                curated_images = fake_images[:num_samples]
+
+                # Convert tensors to numpy arrays and move to CPU
+                curated_images = curated_images.detach().cpu().numpy()
+
+                # Display the curated images
+                for i in range(num_samples):
+                    plt.subplot(1, num_samples, i+1)
+                    plt.imshow(curated_images[i].squeeze(), cmap='gray')
+                    plt.axis('off')
+
+                plt.show()
